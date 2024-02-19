@@ -8,16 +8,30 @@ This repo build a docker image which integrate ZomboDB extension with Postgres.
 
 [ZomboDB github](https://github.com/zombodb/zombodb/tree/master)
 
-## Build docker image
+## Docker image
 
-Sample command:
+You can pull docker image from my docker hub [repo](https://hub.docker.com/r/hqiasjehrlb/postgres-zombodb).
+
 ```shell
-docker build --build-arg="PG_VER=15" -t postgres-zombodb:15 .
+docker pull hqiasjehrlb/postgres-zombodb
 ```
 
-The build argument `PG_VER` is optional, `12`, `13`, `14`, `15` are available, default value is `15`.
+Or build your own by command:
+```shell
+docker build --build-arg="PG_VER=15" -t <your_tag_name> .
+```
+
+*The build argument `PG_VER` is optional, `12`, `13`, `14`, `15` are available, default value is `15`.*
 
 ## Usage
+
+* Docker container
+  You can run docker container by command:
+  ```shell
+  docker run -e POSTGRES_PASSWORD=postgresql -p 5432:5432 -d hqiasjehrlb/postgres-zombodb
+  ```
+  Or by docker compose (please refer to `docker-compose.yml`).
+  *Image usage please refer to [postgres](https://hub.docker.com/_/postgres)*
 
 * Create extension
 

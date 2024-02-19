@@ -5,11 +5,13 @@ version: '3'
 
 services:
   postgres:
+    image: hqiasjehrlb/postgres-zombodb:latest
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        PG_VER: '12'
+      ## PG_VER is optional, default value: 15
+      # args:
+      #   PG_VER: '12'
     environment:
       POSTGRES_PASSWORD: 'postgresql'
     ports:
