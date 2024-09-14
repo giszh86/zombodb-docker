@@ -1,10 +1,9 @@
-ARG PG_VER=${PG_VER:-15}
-FROM postgres:${PG_VER}-bullseye
+FROM nickblah/pgrouting:12.15-postgis-3.3-pgrouting-3.5.0
 
 ## Befor `FROM` is previous stage,
 ## after `FROM` is current stage.
 ## It is required to declare again in current stage.
-ARG PG_VER=${PG_VER:-15}
+ARG PG_VER=12
 
 ## Install required packages.
 RUN apt update && apt install -y bison flex zlib1g zlib1g-dev \
@@ -29,5 +28,5 @@ RUN ${CARGO_HOME}/bin/cargo pgrx init --pg${PG_VER}=/usr/lib/postgresql/${PG_VER
 WORKDIR /usr/lib
 RUN git clone https://github.com/zombodb/zombodb.git
 WORKDIR /usr/lib/zombodb
-RUN git fetch && git checkout v3000.2.3
+RUN git fetch && git checkout v3000.2.6
 RUN ${CARGO_HOME}/bin/cargo pgrx install --release
