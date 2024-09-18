@@ -5,6 +5,9 @@ FROM nickblah/pgrouting:12.15-postgis-3.3-pgrouting-3.5.0
 ## It is required to declare again in current stage.
 ARG PG_VER=12
 
+RUN echo "en_US.UTF-8 UTF-8"> /etc/locale.gen 
+RUN locale-gen
+
 ## Install required packages.
 RUN apt update && apt install -y bison flex zlib1g zlib1g-dev \
   pkg-config make libssl-dev libreadline-dev \
