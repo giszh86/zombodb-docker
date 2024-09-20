@@ -1,9 +1,9 @@
-FROM nickblah/pgrouting:15.7-postgis-3.4.2-pgrouting-3.6.2
+FROM nickblah/pgrouting:13.15-postgis-3.4.2-pgrouting-3.6.2
 
 ## Befor `FROM` is previous stage,
 ## after `FROM` is current stage.
 ## It is required to declare again in current stage.
-ARG PG_VER=15
+ARG PG_VER=13
 
 RUN echo "en_US.UTF-8 UTF-8"> /etc/locale.gen 
 RUN locale-gen
@@ -23,7 +23,7 @@ ARG CARGO_HOME=/usr/lib/cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 ## Install cargo-pgrx@0.9.8.
-RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx@0.9.8
+RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx
 ## Init cargo-pgrx with postgres.
 RUN ${CARGO_HOME}/bin/cargo pgrx init --pg${PG_VER}=/usr/lib/postgresql/${PG_VER}/bin/pg_config
 
