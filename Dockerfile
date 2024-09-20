@@ -23,7 +23,7 @@ ARG CARGO_HOME=/usr/lib/cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 ## Install cargo-pgrx@0.9.8.
-RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx
+RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx@0.9.8
 ## Init cargo-pgrx with postgres.
 RUN ${CARGO_HOME}/bin/cargo pgrx init --pg${PG_VER}=/usr/lib/postgresql/${PG_VER}/bin/pg_config
 
