@@ -1,9 +1,9 @@
-FROM nickblah/pgrouting:15.7-postgis-3.4.2-pgrouting-3.6.2
+FROM nickblah/pgrouting:12.19-postgis-3.4.2-pgrouting-3.6.2
 
 ## Befor `FROM` is previous stage,
 ## after `FROM` is current stage.
 ## It is required to declare again in current stage.
-ARG PG_VER=15
+ARG PG_VER=12
 
 RUN echo "en_US.UTF-8 UTF-8"> /etc/locale.gen 
 RUN locale-gen
@@ -31,5 +31,5 @@ RUN ${CARGO_HOME}/bin/cargo pgrx init --pg${PG_VER}=/usr/lib/postgresql/${PG_VER
 WORKDIR /usr/lib
 RUN git clone https://github.com/zombodb/zombodb.git
 WORKDIR /usr/lib/zombodb
-RUN git fetch && git checkout v3000.2.6
+RUN git fetch && git checkout v3000.2.7
 RUN ${CARGO_HOME}/bin/cargo pgrx install --release
