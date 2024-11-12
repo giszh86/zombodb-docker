@@ -1,4 +1,4 @@
-FROM nickblah/pgrouting:13.15-postgis-3.4.2-pgrouting-3.6.2
+FROM nickblah/pgrouting:14.12-postgis-3.4.2-pgrouting-3.6.2
 
 ## Befor `FROM` is previous stage,
 ## after `FROM` is current stage.
