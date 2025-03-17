@@ -13,6 +13,7 @@ RUN apt update && apt install -y bison flex zlib1g zlib1g-dev \
   pkg-config make libssl-dev libreadline-dev \
   gcc build-essential libz-dev strace\
   postgresql-server-dev-${PG_VER} \
+  postgresql-${PG_VER}-pgvector \
   curl git
 
 ## Change rust toolchain install path.
