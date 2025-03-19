@@ -1,9 +1,9 @@
-FROM nickblah/pgrouting:14.12-postgis-3.4.2-pgrouting-3.6.2
+FROM nickblah/pgrouting:15.7-postgis-3.4.2-pgrouting-3.6.2
 
 ## Befor `FROM` is previous stage,
 ## after `FROM` is current stage.
 ## It is required to declare again in current stage.
-ARG PG_VER=14
+ARG PG_VER=15
 
 RUN echo "en_US.UTF-8 UTF-8"> /etc/locale.gen 
 RUN locale-gen
