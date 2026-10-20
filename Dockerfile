@@ -23,8 +23,8 @@ ARG CARGO_HOME=/usr/lib/cargo
 ## Install rust toolchain.
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-## Install cargo-pgrx@0.9.8.
-RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx@0.9.8
+## Install cargo-pgrx@0.13.1.
+RUN ${CARGO_HOME}/bin/cargo install cargo-pgrx@0.13.1
 ## Init cargo-pgrx with postgres.
 RUN ${CARGO_HOME}/bin/cargo pgrx init --pg${PG_VER}=/usr/lib/postgresql/${PG_VER}/bin/pg_config
 
